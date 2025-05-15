@@ -1,16 +1,28 @@
+/// Data models for IP information returned by the ipquery.io API.
+library models;
+
+/// Information about the Internet Service Provider.
 class IspInfo {
+  /// Autonomous System Number
   final String asn;
+
+  /// Organization name
   final String org;
+
+  /// Internet Service Provider name
   final String isp;
 
+  /// Creates a new ISP information object.
   IspInfo({required this.asn, required this.org, required this.isp});
 
+  /// Creates an [IspInfo] from a JSON object.
   factory IspInfo.fromJson(Map<String, dynamic> json) => IspInfo(
         asn: json['asn'] ?? '',
         org: json['org'] ?? '',
         isp: json['isp'] ?? '',
       );
 
+  /// Converts this [IspInfo] to a JSON object.
   Map<String, dynamic> toJson() => {
         'asn': asn,
         'org': org,
@@ -18,17 +30,36 @@ class IspInfo {
       };
 }
 
+/// Geographic location information for an IP address.
 class LocationInfo {
+  /// Country name
   final String country;
+
+  /// Two-letter country code (ISO 3166-1 alpha-2)
   final String countryCode;
+
+  /// City name
   final String city;
+
+  /// State or region name
   final String state;
+
+  /// Postal or ZIP code
   final String zipcode;
+
+  /// Latitude coordinate
   final double latitude;
+
+  /// Longitude coordinate
   final double longitude;
+
+  /// Timezone identifier (e.g., "America/New_York")
   final String timezone;
+
+  /// Local time at the location
   final String localtime;
 
+  /// Creates a new location information object.
   LocationInfo({
     required this.country,
     required this.countryCode,
@@ -41,6 +72,7 @@ class LocationInfo {
     required this.localtime,
   });
 
+  /// Creates a [LocationInfo] from a JSON object.
   factory LocationInfo.fromJson(Map<String, dynamic> json) => LocationInfo(
         country: json['country'] ?? '',
         countryCode: json['country_code'] ?? '',
@@ -53,6 +85,7 @@ class LocationInfo {
         localtime: json['localtime'] ?? '',
       );
 
+  /// Converts this [LocationInfo] to a JSON object.
   Map<String, dynamic> toJson() => {
         'country': country,
         'country_code': countryCode,
@@ -66,14 +99,27 @@ class LocationInfo {
       };
 }
 
+/// Security and risk assessment information for an IP address.
 class RiskInfo {
+  /// Whether the IP is from a mobile network
   final bool isMobile;
+
+  /// Whether the IP is from a VPN
   final bool isVpn;
+
+  /// Whether the IP is from the Tor network
   final bool isTor;
+
+  /// Whether the IP is from a proxy server
   final bool isProxy;
+
+  /// Whether the IP is from a datacenter
   final bool isDatacenter;
+
+  /// Risk score (0-100, higher means riskier)
   final int riskScore;
 
+  /// Creates a new risk information object.
   RiskInfo({
     required this.isMobile,
     required this.isVpn,
@@ -83,6 +129,7 @@ class RiskInfo {
     required this.riskScore,
   });
 
+  /// Creates a [RiskInfo] from a JSON object.
   factory RiskInfo.fromJson(Map<String, dynamic> json) => RiskInfo(
         isMobile: json['is_mobile'] ?? false,
         isVpn: json['is_vpn'] ?? false,
@@ -92,6 +139,7 @@ class RiskInfo {
         riskScore: json['risk_score'] ?? 0,
       );
 
+  /// Converts this [RiskInfo] to a JSON object.
   Map<String, dynamic> toJson() => {
         'is_mobile': isMobile,
         'is_vpn': isVpn,
@@ -102,12 +150,21 @@ class RiskInfo {
       };
 }
 
+/// Main container for IP address information.
 class IpInfo {
+  /// The IP address
   final String ip;
+
+  /// ISP information (may be null)
   final IspInfo? isp;
+
+  /// Geographic location information (may be null)
   final LocationInfo? location;
+
+  /// Security and risk assessment information (may be null)
   final RiskInfo? risk;
 
+  /// Creates a new IP information object.
   IpInfo({
     required this.ip,
     this.isp,
@@ -115,6 +172,7 @@ class IpInfo {
     this.risk,
   });
 
+  /// Creates an [IpInfo] from a JSON object.
   factory IpInfo.fromJson(Map<String, dynamic> json) => IpInfo(
         ip: json['ip'] ?? '',
         isp: json['isp'] != null ? IspInfo.fromJson(json['isp']) : null,
@@ -124,6 +182,7 @@ class IpInfo {
         risk: json['risk'] != null ? RiskInfo.fromJson(json['risk']) : null,
       );
 
+  /// Converts this [IpInfo] to a JSON object.
   Map<String, dynamic> toJson() => {
         'ip': ip,
         'isp': isp?.toJson(),
