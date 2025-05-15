@@ -21,8 +21,10 @@ class IpQuery {
   static const String _baseUrl = 'https://api.ipquery.io/';
 
   /// Query your own public IP address as a string (optionally specify format)
-  static Future<String> queryOwnIp({IpQueryFormat format = IpQueryFormat.text}) async {
-    final response = await http.get(Uri.parse(_baseUrl + '?format=${_formatToString(format)}'));
+  static Future<String> queryOwnIp(
+      {IpQueryFormat format = IpQueryFormat.text}) async {
+    final response = await http
+        .get(Uri.parse(_baseUrl + '?format=${_formatToString(format)}'));
     if (response.statusCode != 200) {
       throw Exception('Failed to fetch own IP: ${response.statusCode}');
     }
@@ -30,8 +32,10 @@ class IpQuery {
   }
 
   /// Query your own IP info (returns [IpInfo] for JSON, raw string for others)
-  static Future<dynamic> queryOwnIpInfo({IpQueryFormat format = IpQueryFormat.json}) async {
-    final response = await http.get(Uri.parse(_baseUrl + '?format=${_formatToString(format)}'));
+  static Future<dynamic> queryOwnIpInfo(
+      {IpQueryFormat format = IpQueryFormat.json}) async {
+    final response = await http
+        .get(Uri.parse(_baseUrl + '?format=${_formatToString(format)}'));
     if (response.statusCode != 200) {
       throw Exception('Failed to fetch own IP info: ${response.statusCode}');
     }
@@ -43,8 +47,10 @@ class IpQuery {
   }
 
   /// Query info for a specific IP address (returns [IpInfo] for JSON, raw string for others)
-  static Future<dynamic> querySpecificIp(String ip, {IpQueryFormat format = IpQueryFormat.json}) async {
-    final response = await http.get(Uri.parse(_baseUrl + ip + '?format=${_formatToString(format)}'));
+  static Future<dynamic> querySpecificIp(String ip,
+      {IpQueryFormat format = IpQueryFormat.json}) async {
+    final response = await http
+        .get(Uri.parse(_baseUrl + ip + '?format=${_formatToString(format)}'));
     if (response.statusCode != 200) {
       throw Exception('Failed to fetch IP info: ${response.statusCode}');
     }
@@ -56,9 +62,11 @@ class IpQuery {
   }
 
   /// Query info for multiple IP addresses (bulk, returns List<IpInfo> for JSON, raw string for others)
-  static Future<dynamic> queryBulkIps(List<String> ips, {IpQueryFormat format = IpQueryFormat.json}) async {
+  static Future<dynamic> queryBulkIps(List<String> ips,
+      {IpQueryFormat format = IpQueryFormat.json}) async {
     final joined = ips.join(',');
-    final response = await http.get(Uri.parse(_baseUrl + joined + '?format=${_formatToString(format)}'));
+    final response = await http.get(
+        Uri.parse(_baseUrl + joined + '?format=${_formatToString(format)}'));
     if (response.statusCode != 200) {
       throw Exception('Failed to fetch bulk IP info: ${response.statusCode}');
     }

@@ -1,9 +1,18 @@
 name: ipquery_dart
-description: Dart SDK for ipquery.io API (IP geolocation and risk info)
+description: A Dart SDK for the ipquery.io API. Query geolocation, ISP, and risk information for any IP address, your own IP, or in bulk.
 version: 0.1.0
+repository: https://github.com/koke1997/ipquery-dart
+homepage: https://ipquery.io/
+# Add these useful fields
+documentation: https://github.com/koke1997/ipquery-dart/blob/main/README.md
+issue_tracker: https://github.com/koke1997/ipquery-dart/issues
+
 environment:
   sdk: ">=3.0.0 <4.0.0"
+
 dependencies:
   http: ^1.2.1
+
 dev_dependencies:
   test: ^1.25.2
+  lints: ^3.0.0 # For linting

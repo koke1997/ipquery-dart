@@ -1,6 +1,9 @@
 # ipquery_dart
 
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/koke1997/ipquery-dart/total)
+[![Pub Version](https://img.shields.io/pub/v/ipquery_dart)](https://pub.dev/packages/ipquery_dart)
+![GitHub Downloads](https://img.shields.io/github/downloads/koke1997/ipquery-dart/total)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 
 A simple Dart SDK for the [ipquery.io](https://ipquery.io) API. Query geolocation, ISP, and risk information for any IP address, your own IP, or in bulk. Supports JSON, YAML, XML, and text formats.
 
@@ -15,12 +18,14 @@ Add to your `pubspec.yaml`:
 ```yaml
 dependencies:
   ipquery_dart:
-    path: .
+    ipquery_dart: ^0.1.0
 ```
 Run:
 ```sh
 dart pub get
 ```
+
+###
 
 ## Usage Example
 ```dart
@@ -51,18 +56,37 @@ void main() async {
 }
 ```
 
-## API
+## Main methods
 - `IpQuery.queryOwnIp({format})` → String
+- Gets your public IP address as a string
+- Optional format parameter (defaults to text)
+---
 - `IpQuery.queryOwnIpInfo({format})` → IpInfo or String
+- Gets full information about your public IP
+- Returns IpInfo object for JSON format, raw string for others
+---
 - `IpQuery.querySpecificIp(ip, {format})` → IpInfo or String
+- Gets information about a specific IP address
+- Returns IpInfo object for JSON format, raw string for others
+---
 - `IpQuery.queryBulkIps([ips], {format})` → List<IpInfo> or String
+- Gets information about multiple IP addresses
+- Returns List<IpInfo> for JSON format, raw string for others
 
-See the `example/` directory for more.
+## Response formats
+```dart
+enum IpQueryFormat { text, json, yaml, xml }
+```
+
 
 ---
-MIT License
+## Data Models
+- `IpInfo` - Main container for IP data
+- `LocationInfo` - Geographic information (country, city, coordinates)
+- `IspInfo` - Network provider information (ASN, organization)
+- `RiskInfo` - Security information (proxy detection, risk scores)
 
+See the example directory for more detailed usage examples.
 
----
 ## Important Information
 This project is not affiliated with **IPQuery.io**. For more information, please visit their website at [ipquery.io](https://ipQuery.io/)

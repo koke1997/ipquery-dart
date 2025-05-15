@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class IspInfo {
   final String asn;
   final String org;
@@ -120,7 +118,9 @@ class IpInfo {
   factory IpInfo.fromJson(Map<String, dynamic> json) => IpInfo(
         ip: json['ip'] ?? '',
         isp: json['isp'] != null ? IspInfo.fromJson(json['isp']) : null,
-        location: json['location'] != null ? LocationInfo.fromJson(json['location']) : null,
+        location: json['location'] != null
+            ? LocationInfo.fromJson(json['location'])
+            : null,
         risk: json['risk'] != null ? RiskInfo.fromJson(json['risk']) : null,
       );
 

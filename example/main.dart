@@ -17,7 +17,8 @@ void main() async {
   print('$testIp info: ${info.location?.country}');
 
   print('\n--- Querying a specific IP (YAML) ---');
-  final yaml = await IpQuery.querySpecificIp(testIp, format: IpQueryFormat.yaml);
+  final yaml =
+      await IpQuery.querySpecificIp(testIp, format: IpQueryFormat.yaml);
   print(yaml);
 
   print('\n--- Bulk query (JSON) ---');
