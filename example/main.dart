@@ -2,7 +2,7 @@ import 'package:ipquery_dart/ipquery.dart';
 
 void main() async {
   // Change this IP to test any address
-  const testIp = '80.187.119.223';
+  const testIp = '8.8.8.8';
 
   print('--- Querying your own public IP (text) ---');
   final ownIp = await IpQuery.queryOwnIp();

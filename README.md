@@ -1,5 +1,7 @@
 # ipquery_dart
 
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/koke1997/ipquery-dart/total)
+
 A simple Dart SDK for the [ipquery.io](https://ipquery.io) API. Query geolocation, ISP, and risk information for any IP address, your own IP, or in bulk. Supports JSON, YAML, XML, and text formats.
 
 ## Features
@@ -59,3 +61,8 @@ See the `example/` directory for more.
 
 ---
 MIT License
+
+
+---
+## Important Information
+This project is not affiliated with **IPQuery.io**. For more information, please visit their website at [ipquery.io](https://ipQuery.io/)
