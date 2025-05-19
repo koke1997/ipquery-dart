@@ -28,7 +28,7 @@ Add to your `pubspec.yaml`:
 ```yaml
 dependencies:
   ipquery_dart:
-    ipquery_dart: ^0.1.0
+    ipquery_dart: ^1.0.1
 ```
 Run:
 ```sh
