@@ -1,7 +1,7 @@
 # ipquery_dart
 
 [![Pub Version](https://img.shields.io/pub/v/ipquery_dart)](https://pub.dev/packages/ipquery_dart)
-![GitHub Downloads](https://img.shields.io/github/downloads/koke1997/ipquery-dart/total)
+[![Pub Points](https://img.shields.io/pub/points/ipquery_dart)](https://pub.dev/packages/ipquery_dart/score)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 
